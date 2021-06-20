@@ -1,6 +1,9 @@
 Run below command from Test project folder
 This program demonstrate volume
 
+Create docker volume
+docker volume create mubeenappdata
+
 docker build -t pywriteapp .
 docker run -it -v mubeenappdata:/app/data --name pyapp pywriteapp
 docker exec -it pyapp bash
