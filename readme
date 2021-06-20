@@ -1,0 +1,11 @@
+Run below command from Test project folder
+This program demonstrate volume
+
+docker build -t pywriteapp .
+docker run -it -v mubeenappdata:/app/data --name pyapp pywriteapp
+docker exec -it pyapp bash
+/var/snap/docker/common/var-lib-docker/volumes/mubeenappdata/_data
+
+
+Attaching same volume to the another container and old values written would be present.
+docker run -it -v mubeenappdata:/app/data --name pyapp2 pywriteapp
