@@ -1,8 +1,7 @@
 Run below command from Test project folder
-This program demonstrate volume
 
-Create docker volume
-docker volume create mubeenappdata
+This program demonstrate volume
+===========================================
 
 docker build -t pywriteapp .
 docker run -it -v mubeenappdata:/app/data --name pyapp pywriteapp
@@ -12,3 +11,16 @@ docker exec -it pyapp bash
 
 Attaching same volume to the another container and old values written would be present.
 docker run -it -v mubeenappdata:/app/data --name pyapp2 pywriteapp
+
+
+Bind mount
+=============================================
+docker run \
+  -it \
+  --name bindmounttest3 \
+  --mount type=bind,source=/home/mubeen/dockerdata,target=/app/data \
+    pywriteapp
+
+Run multiple container with same image and each time with same bind mount.
+
+Multiple application and user manually access and update bind mount data files without any issue.
